@@ -340,8 +340,8 @@ npm run build
 ## Support and Questions
 
 - 📚 [Full API Documentation](./packages/core/README.md)
-- 🐛 [Report Issues](https://github.com/kishormainali/react-country-kit/issues)
-- 💬 [Discussions](https://github.com/kishormainali/react-country-kit/discussions)
+- 🐛 [Report Issues](https://github.com/kishormainali/mk-country-kit/issues)
+- 💬 [Discussions](https://github.com/kishormainali/mk-country-kit/discussions)
 
 ## What's Next?
 

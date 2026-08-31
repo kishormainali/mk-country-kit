@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -11,7 +12,7 @@ permissions:
 
 jobs:
   publish:
-    name: Publish Packages
+    name: Publish Packages (OIDC Trusted Publishing)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -21,7 +22,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: npm ci
@@ -30,13 +30,13 @@ jobs:
         run: npm run build
 
       - name: Publish @mkishor/mk-country-kit
-        run: npm publish --workspace=@mkishor/mk-country-kit --provenance
+        run: npm publish --workspace=@mkishor/mk-country-kit --access public --provenance
 
       - name: Publish @mkishor/mk-country-kit-core
-        run: npm publish --workspace=@mkishor/mk-country-kit-core --provenance
+        run: npm publish --workspace=@mkishor/mk-country-kit-core --access public --provenance
 
       - name: Publish @mkishor/mk-country-kit-ui
-        run: npm publish --workspace=@mkishor/mk-country-kit-ui --provenance
+        run: npm publish --workspace=@mkishor/mk-country-kit-ui --access public --provenance
 
       - name: Publish @mkishor/mk-country-kit-react
-        run: npm publish --workspace=@mkishor/mk-country-kit-react --provenance
+        run: npm publish --workspace=@mkishor/mk-country-kit-react --access public --provenance

@@ -349,7 +349,7 @@ If you notice performance degradation:
 1. Verify you're using v2.0.0 (run `npm ls @mkishor/mk-country-kit-core`)
 2. Check for unnecessary re-renders using React DevTools Profiler
 3. Ensure you're memoizing country lists and selections
-4. Report issues: https://github.com/kishormainali/@mkishor/mk-country-kit-react/issues
+4. Report issues: https://github.com/kishormainali/mk-country-kit/issues
 
 ## 📄 License
 

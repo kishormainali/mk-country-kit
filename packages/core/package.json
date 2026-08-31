@@ -1,6 +1,6 @@
 {
   "name": "@mkishor/mk-country-kit-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Core datasets, utilities, and hooks for react-country-kit. Comprehensive data for countries, currencies, timezones, languages, and divisions.",
   "author": "Kishor Mainali",
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "libphonenumber-js": "^1.13.8",
-    "@mkishor/mk-country-kit": "^1.0.0"
+    "@mkishor/mk-country-kit": "^1.0.1"
   },
   "devDependencies": {
     "@types/react": "^19.2.17",
@@ -48,6 +48,10 @@
   },
   "peerDependencies": {
     "react": ">=17.0.0"
+  },
+  "homepage": "https://github.com/kishormainali/mk-country-kit#readme",
+  "bugs": {
+    "url": "https://github.com/kishormainali/mk-country-kit/issues"
   },
   "repository": {
     "type": "git",

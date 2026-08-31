@@ -12,7 +12,6 @@ export default defineConfig({
     dts({
       include: ['src'],
       exclude: ['src/**/*.test.ts', 'src/**/*.test.tsx'],
-      rollupTypes: false,
       insertTypesEntry: true,
     }),
   ],

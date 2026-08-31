@@ -3,7 +3,7 @@ import {
   CountryPicker, CurrencyPicker, TimezonePicker, LanguagePicker, DivisionPicker,
   PhoneInput, CountryMultiSelect, CurrencyMultiSelect,
   useCountry, useDateFormat
-} from 'react-country-kit';
+} from '@mkishor/mk-country-kit-react';
 import {
   CountryPicker as UiCountryPicker,
   CurrencyPicker as UiCurrencyPicker,
@@ -13,28 +13,29 @@ import {
   PhoneInput as UiPhoneInput,
   CountryMultiSelect as UiCountryMultiSelect,
   CurrencyMultiSelect as UiCurrencyMultiSelect,
-} from 'react-country-kit/ui';
-import type { ICountry, ICurrency, ITimezone, ILanguage, IDivision, IPhoneValue, IDateFormat } from 'react-country-kit';
-import { getAllCountries, getAllCurrencies, getAllTimezones, getAllLanguages } from 'react-country-kit';
+} from '@mkishor/mk-country-kit-ui';
+import type { ICountry, ICurrency, ITimezone, ILanguage, IDivision, IPhoneValue, IDateFormat } from '@mkishor/mk-country-kit-core';
+import { getAllCountries, getAllCurrencies, getAllTimezones, getAllLanguages } from '@mkishor/mk-country-kit';
 
 const CODE_EXAMPLES: Record<string, string> = {
-  install: `npm install react-country-kit
+  install: `npm install @mkishor/mk-country-kit-react @mkishor/mk-country-kit-core
 
 # Vanilla CSS (no Tailwind needed):
-import 'react-country-kit/styles';
+import '@mkishor/mk-country-kit-react/styles';
 
 # shadcn/Tailwind variant (no CSS import needed):
+# npm install @mkishor/mk-country-kit-ui @mkishor/mk-country-kit-core
 # Requires @radix-ui/react-popover, cmdk, tailwind-merge, clsx`,
 
   vanilla: `import {
   CountryPicker, CurrencyPicker,
   TimezonePicker, LanguagePicker, DivisionPicker,
-} from 'react-country-kit';
-import 'react-country-kit/styles';
+} from '@mkishor/mk-country-kit-react';
+import '@mkishor/mk-country-kit-react/styles';
 
 // Self-contained — no Tailwind required
 function VanillaForm() {
-  const [country, setCountry] = useState<Country | null>(null);
+  const [country, setCountry] = useState<ICountry | null>(null);
   return (
     <CountryPicker
       value={country}
@@ -48,7 +49,7 @@ function VanillaForm() {
   shadcn: `import {
   CountryPicker, CurrencyPicker,
   TimezonePicker, LanguagePicker, DivisionPicker,
-} from 'react-country-kit/ui';
+} from '@mkishor/mk-country-kit-ui';
 // No CSS import — fully Tailwind driven
 
 // Works with shadcn CSS variable tokens:
@@ -56,7 +57,7 @@ function VanillaForm() {
 // --accent, --muted, --popover, --ring, --radius
 
 function ShadcnForm() {
-  const [country, setCountry] = useState<Country | null>(null);
+  const [country, setCountry] = useState<ICountry | null>(null);
   return (
     <CountryPicker
       value={country}
@@ -68,8 +69,7 @@ function ShadcnForm() {
   );
 }`,
 
-  hooks: `import { useCountryPicker } from 'react-country-kit/ui';
-// or from 'react-country-kit' — same hooks
+  hooks: `import { useCountryPicker } from '@mkishor/mk-country-kit-core';
 
 function CustomPicker() {
   const {
@@ -92,8 +92,7 @@ function CustomPicker() {
   getAllCountries, getCountryByIso2,
   getAllCurrencies, getAllTimezones,
   getAllLanguages, iso2ToFlag,
-} from 'react-country-kit/ui';
-// or from 'react-country-kit'
+} from '@mkishor/mk-country-kit';
 
 const us = getCountryByIso2('US');
 console.log(us?.currency);  // { code: 'USD', name: '...', symbol: '$' }

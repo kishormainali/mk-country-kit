@@ -14,8 +14,11 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "react-country-kit": ["../src/index.ts"],
-      "react-country-kit/ui": ["../../ui/src/index.ts"]
-    }  },
+      "@mkishor/mk-country-kit": ["../../data/src/index.ts"],
+      "@mkishor/mk-country-kit-core": ["../../core/src/index.ts"],
+      "@mkishor/mk-country-kit-ui": ["../../ui/src/index.ts"],
+      "@mkishor/mk-country-kit-react": ["../src/index.ts"]
+    }
+  },
   "include": ["src", "../src", "../../ui/src"]
 }

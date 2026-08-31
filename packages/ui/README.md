@@ -2,7 +2,7 @@
 
 Premium, accessible, and highly customizable React components for countries, currencies, timezones, and more. Built on top of **Radix UI** and styled with **Tailwind CSS**.
 
-Part of the [@mkishor/mk-country-kit-react](https://github.com/kishormainali/@mkishor/mk-country-kit-react) ecosystem.
+Part of the [@mkishor/mk-country-kit-react](https://github.com/kishormainali/mk-country-kit) ecosystem.
 
 ## 🚀 Installation
 

@@ -9,8 +9,10 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      'react-country-kit/ui': resolve(__dirname, '../../ui/src/index.ts'),
-      'react-country-kit': resolve(__dirname, '../src/index.ts'),
+      '@mkishor/mk-country-kit-ui': resolve(__dirname, '../../ui/src/index.ts'),
+      '@mkishor/mk-country-kit-react': resolve(__dirname, '../src/index.ts'),
+      '@mkishor/mk-country-kit-core': resolve(__dirname, '../../core/src/index.ts'),
+      '@mkishor/mk-country-kit': resolve(__dirname, '../../data/src/index.ts'),
     },
     dedupe: ['react', 'react-dom'],
   },

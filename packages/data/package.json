@@ -1,6 +1,6 @@
 {
   "name": "@mkishor/mk-country-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Comprehensive data and data types for react-country-kit.",
   "author": "Kishor Mainali",
@@ -40,6 +40,10 @@
     "typescript": "^5.9.3",
     "vite": "^8.1.4",
     "vite-plugin-dts": "^5.0.3"
+  },
+  "homepage": "https://github.com/kishormainali/mk-country-kit#readme",
+  "bugs": {
+    "url": "https://github.com/kishormainali/mk-country-kit/issues"
   },
   "repository": {
     "type": "git",
