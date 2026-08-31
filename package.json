@@ -1,0 +1,19 @@
+{
+  "name": "react-country-kit-monorepo",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace=@mkishor/mk-country-kit && npm run build --workspace=@mkishor/mk-country-kit-core && npm run build --workspace=@mkishor/mk-country-kit-ui && npm run build --workspace=@mkishor/mk-country-kit-react",
+    "dev": "npm run dev --workspace=@mkishor/mk-country-kit-react",
+    "generate": "node scripts/generate-countries.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1",
+    "typescript": "^5.9.3",
+    "vite": "^8.1.4"
+  },
+  "version": "1.0.0"
+}

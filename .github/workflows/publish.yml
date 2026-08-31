@@ -1,0 +1,42 @@
+name: Publish to NPM
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    name: Publish Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build packages
+        run: npm run build
+
+      - name: Publish @mkishor/mk-country-kit
+        run: npm publish --workspace=@mkishor/mk-country-kit --provenance
+
+      - name: Publish @mkishor/mk-country-kit-core
+        run: npm publish --workspace=@mkishor/mk-country-kit-core --provenance
+
+      - name: Publish @mkishor/mk-country-kit-ui
+        run: npm publish --workspace=@mkishor/mk-country-kit-ui --provenance
+
+      - name: Publish @mkishor/mk-country-kit-react
+        run: npm publish --workspace=@mkishor/mk-country-kit-react --provenance

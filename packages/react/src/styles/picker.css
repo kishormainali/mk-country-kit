@@ -1,0 +1,685 @@
+/* ======================================================
+   react-country-kit — Design System & Component Styles
+   ====================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* ---------- Design Tokens ---------- */
+:root {
+  --rck-font: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Colors — light mode */
+  --rck-bg: #ffffff;
+  --rck-surface: #f8fafc;
+  --rck-surface-hover: #f1f5f9;
+  --rck-border: #e2e8f0;
+  --rck-border-focus: #6366f1;
+  --rck-text-primary: #0f172a;
+  --rck-text-secondary: #64748b;
+  --rck-text-placeholder: #94a3b8;
+  --rck-accent: #6366f1;
+  --rck-accent-light: #eef2ff;
+  --rck-accent-dark: #4f46e5;
+  --rck-selected-bg: #eef2ff;
+  --rck-selected-text: #4f46e5;
+  --rck-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05);
+  --rck-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.06);
+  --rck-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12), 0 4px 10px rgba(0, 0, 0, 0.07);
+  --rck-radius-sm: 8px;
+  --rck-radius-md: 12px;
+  --rck-radius-lg: 16px;
+  --rck-transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --rck-dropdown-max-height: 320px;
+  --rck-z-index: 9999;
+}
+
+/* ---------- Dark mode ---------- */
+[data-theme='dark'] {
+  --rck-bg: #1e293b;
+  --rck-surface: #0f172a;
+  --rck-surface-hover: #1e293b;
+  --rck-border: #334155;
+  --rck-border-focus: #818cf8;
+  --rck-text-primary: #f8fafc;
+  --rck-text-secondary: #94a3b8;
+  --rck-text-placeholder: #64748b;
+  --rck-accent: #818cf8;
+  --rck-accent-light: #1e1b4b;
+  --rck-accent-dark: #6366f1;
+  --rck-selected-bg: #1e1b4b;
+  --rck-selected-text: #a5b4fc;
+  --rck-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --rck-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --rck-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- Wrapper ---------- */
+.rck-picker {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  font-family: var(--rck-font);
+  width: 100%;
+}
+
+/* ---------- Label ---------- */
+.rck-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--rck-text-secondary);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ---------- Trigger button ---------- */
+.rck-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 14px;
+  background: var(--rck-bg);
+  border: 1.5px solid var(--rck-border);
+  border-radius: var(--rck-radius-md);
+  cursor: pointer;
+  font-family: var(--rck-font);
+  font-size: 0.9375rem;
+  color: var(--rck-text-primary);
+  text-align: left;
+  transition:
+    border-color var(--rck-transition),
+    box-shadow var(--rck-transition),
+    background var(--rck-transition);
+  outline: none;
+  box-shadow: var(--rck-shadow-sm);
+  min-height: 46px;
+  user-select: none;
+}
+
+.rck-trigger:hover:not(:disabled) {
+  border-color: var(--rck-accent);
+  box-shadow: var(--rck-shadow-md);
+}
+
+.rck-trigger:focus-visible {
+  border-color: var(--rck-border-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--rck-accent) 20%, transparent);
+}
+
+.rck-trigger.rck-open {
+  border-color: var(--rck-border-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--rck-accent) 20%, transparent);
+}
+
+.rck-trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--rck-surface);
+}
+
+.rck-trigger-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.rck-trigger-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.rck-placeholder {
+  color: var(--rck-text-placeholder);
+}
+
+.rck-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: var(--rck-accent-light);
+  color: var(--rck-accent-dark);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.rck-flag {
+  font-size: 1.375rem;
+  line-height: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.rck-flag-img {
+  width: 24px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.rck-flag-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ---------- Chevron ---------- */
+.rck-chevron {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--rck-text-secondary);
+  transition: transform var(--rck-transition), color var(--rck-transition);
+}
+
+.rck-trigger.rck-open .rck-chevron {
+  transform: rotate(180deg);
+  color: var(--rck-accent);
+}
+
+/* ---------- Dropdown ---------- */
+.rck-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: var(--rck-z-index);
+  background: var(--rck-bg);
+  border: 1.5px solid var(--rck-border);
+  border-radius: var(--rck-radius-lg);
+  box-shadow: var(--rck-shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: rck-dropdown-in var(--rck-transition) both;
+  transform-origin: top;
+}
+
+@keyframes rck-dropdown-in {
+  from {
+    opacity: 0;
+    transform: scaleY(0.92) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+  }
+}
+
+/* ---------- Search input ---------- */
+.rck-search-wrapper {
+  padding: 12px 12px 8px;
+  border-bottom: 1px solid var(--rck-border);
+}
+
+.rck-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--rck-surface);
+  border: 1.5px solid var(--rck-border);
+  border-radius: var(--rck-radius-sm);
+  padding: 8px 12px;
+  transition: border-color var(--rck-transition), box-shadow var(--rck-transition);
+}
+
+.rck-search:focus-within {
+  border-color: var(--rck-border-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--rck-accent) 15%, transparent);
+}
+
+.rck-search-icon {
+  width: 15px;
+  height: 15px;
+  color: var(--rck-text-placeholder);
+  flex-shrink: 0;
+}
+
+.rck-search input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: var(--rck-font);
+  font-size: 0.875rem;
+  color: var(--rck-text-primary);
+  outline: none;
+  min-width: 0;
+}
+
+.rck-search input::placeholder {
+  color: var(--rck-text-placeholder);
+}
+
+/* ---------- List ---------- */
+.rck-list {
+  overflow-y: auto;
+  max-height: var(--rck-dropdown-max-height);
+  padding: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rck-border) transparent;
+}
+
+.rck-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.rck-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.rck-list::-webkit-scrollbar-thumb {
+  background: var(--rck-border);
+  border-radius: 99px;
+}
+
+/* ---------- Item ---------- */
+.rck-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: var(--rck-radius-sm);
+  cursor: pointer;
+  transition:
+    background var(--rck-transition),
+    color var(--rck-transition);
+  font-family: var(--rck-font);
+  font-size: 0.9rem;
+  color: var(--rck-text-primary);
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  user-select: none;
+  outline: none;
+}
+
+.rck-item:hover,
+.rck-item:focus-visible {
+  background: var(--rck-surface-hover);
+}
+
+.rck-item.rck-item-selected {
+  background: var(--rck-selected-bg);
+  color: var(--rck-selected-text);
+  font-weight: 600;
+}
+
+.rck-item-flag {
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.rck-item-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.rck-item-name {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rck-item-sub {
+  font-size: 0.76rem;
+  color: var(--rck-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rck-item-selected .rck-item-sub {
+  color: var(--rck-accent-dark);
+  opacity: 0.8;
+}
+
+.rck-item-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.rck-item-phone {
+  font-size: 0.78rem;
+  color: var(--rck-text-secondary);
+  font-variant-numeric: tabular-nums;
+  background: var(--rck-surface);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.rck-item-symbol {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--rck-accent);
+  min-width: 24px;
+  text-align: center;
+}
+
+.rck-item-check {
+  width: 16px;
+  height: 16px;
+  color: var(--rck-accent);
+  flex-shrink: 0;
+}
+
+/* ---------- Empty state ---------- */
+.rck-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 16px;
+  gap: 8px;
+  color: var(--rck-text-secondary);
+  font-size: 0.875rem;
+}
+
+.rck-empty-icon {
+  font-size: 2rem;
+  opacity: 0.4;
+}
+
+/* ---------- Overlay (for closing on click outside) ---------- */
+.rck-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--rck-z-index) - 1);
+}
+
+/* ---------- Offset badge for timezones ---------- */
+.rck-offset-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--rck-accent-light);
+  color: var(--rck-accent-dark);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Native name tag ---------- */
+.rck-native-name {
+  font-size: 0.78rem;
+  color: var(--rck-text-secondary);
+  font-style: italic;
+}
+
+/* ======================================================
+   Phone Input
+   ====================================================== */
+
+.rck-phone-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--rck-font);
+  width: 100%;
+  position: relative;
+}
+
+.rck-phone-field {
+  display: flex;
+  align-items: stretch;
+  border: 1.5px solid var(--rck-border);
+  border-radius: var(--rck-radius-md);
+  background: var(--rck-bg);
+  box-shadow: var(--rck-shadow-sm);
+  overflow: visible;
+  position: relative;
+  transition: border-color var(--rck-transition), box-shadow var(--rck-transition);
+  min-height: 46px;
+}
+
+.rck-phone-field:focus-within {
+  border-color: var(--rck-border-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--rck-accent) 20%, transparent);
+}
+
+.rck-phone-field.rck-phone-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  background: var(--rck-surface);
+}
+
+/* Country selector button */
+.rck-phone-country-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 12px;
+  border: none;
+  border-right: 1.5px solid var(--rck-border);
+  border-radius: var(--rck-radius-md) 0 0 var(--rck-radius-md);
+  background: var(--rck-surface);
+  cursor: pointer;
+  font-family: var(--rck-font);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--rck-text-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background var(--rck-transition);
+  outline: none;
+}
+
+.rck-phone-country-btn:hover:not(:disabled) {
+  background: var(--rck-surface-hover);
+}
+
+.rck-phone-flag {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.rck-phone-dial {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--rck-accent);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+.rck-phone-chevron {
+  width: 14px;
+  height: 14px;
+  color: var(--rck-text-secondary);
+  transition: transform var(--rck-transition);
+}
+
+.rck-phone-country-btn[aria-expanded='true'] .rck-phone-chevron {
+  transform: rotate(180deg);
+}
+
+/* Phone number text input */
+.rck-phone-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: var(--rck-font);
+  font-size: 0.9375rem;
+  color: var(--rck-text-primary);
+  padding: 0 14px;
+  outline: none;
+  min-width: 0;
+}
+
+.rck-phone-input::placeholder {
+  color: var(--rck-text-placeholder);
+}
+
+/* Phone country dropdown */
+.rck-phone-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 280px;
+  z-index: var(--rck-z-index);
+  background: var(--rck-bg);
+  border: 1.5px solid var(--rck-border);
+  border-radius: var(--rck-radius-lg);
+  box-shadow: var(--rck-shadow-lg);
+  overflow: hidden;
+  animation: rck-dropdown-in var(--rck-transition) both;
+}
+
+/* ======================================================
+   Multi-Select — Chips
+   ====================================================== */
+
+.rck-multiselect-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 46px;
+  padding: 7px 14px;
+  background: var(--rck-bg);
+  border: 1.5px solid var(--rck-border);
+  border-radius: var(--rck-radius-md);
+  cursor: pointer;
+  font-family: var(--rck-font);
+  text-align: left;
+  transition: border-color var(--rck-transition), box-shadow var(--rck-transition);
+  outline: none;
+  box-shadow: var(--rck-shadow-sm);
+}
+
+.rck-multiselect-trigger:hover:not(:disabled) {
+  border-color: var(--rck-accent);
+  box-shadow: var(--rck-shadow-md);
+}
+
+.rck-multiselect-trigger:focus-visible,
+.rck-multiselect-trigger.rck-open {
+  border-color: var(--rck-border-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--rck-accent) 20%, transparent);
+}
+
+.rck-multiselect-trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.rck-chips-area {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  min-width: 0;
+  align-items: center;
+}
+
+/* Individual chip */
+.rck-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  background: var(--rck-accent-light);
+  color: var(--rck-accent-dark);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  max-width: 140px;
+  overflow: hidden;
+}
+
+.rck-chip-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rck-chip-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--rck-accent-dark);
+  opacity: 0.6;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+
+.rck-chip-remove:hover { opacity: 1; }
+
+.rck-chip-overflow {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  background: var(--rck-surface-hover);
+  color: var(--rck-text-secondary);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Clear all button */
+.rck-multiselect-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--rck-text-secondary);
+  padding: 2px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+
+.rck-multiselect-clear:hover {
+  color: var(--rck-text-primary);
+  background: var(--rck-surface-hover);
+}
+
+/* Check icon in multi-select list = filled circle */
+.rck-item-check-multi {
+  width: 16px;
+  height: 16px;
+  background: var(--rck-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rck-item-check-multi svg {
+  width: 10px;
+  height: 10px;
+  stroke: white;
+}
+
+.rck-item-check-empty {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--rck-border);
+  border-radius: 50%;
+  flex-shrink: 0;
+}

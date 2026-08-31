@@ -1,0 +1,60 @@
+{
+  "name": "@mkishor/mk-country-kit-core",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Core datasets, utilities, and hooks for react-country-kit. Comprehensive data for countries, currencies, timezones, languages, and divisions.",
+  "author": "Kishor Mainali",
+  "license": "MIT",
+  "keywords": [
+    "country-data",
+    "timezone-data",
+    "currency-data",
+    "language-data",
+    "division-data",
+    "phone-formats",
+    "react-hooks",
+    "react-country-kit",
+    "mk-country-kit"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "vite build",
+    "build:types": "tsc --emitDeclarationOnly",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "libphonenumber-js": "^1.13.8",
+    "@mkishor/mk-country-kit": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@vitejs/plugin-react": "^6.0.3",
+    "typescript": "^5.9.3",
+    "vite": "^8.1.4",
+    "vite-plugin-dts": "^5.0.3"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kishormainali/mk-country-kit.git",
+    "directory": "packages/core"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

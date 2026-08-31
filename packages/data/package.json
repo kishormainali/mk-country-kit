@@ -1,0 +1,52 @@
+{
+  "name": "@mkishor/mk-country-kit",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Comprehensive data and data types for react-country-kit.",
+  "author": "Kishor Mainali",
+  "license": "MIT",
+  "keywords": [
+    "country-data",
+    "timezone-data",
+    "currency-data",
+    "language-data",
+    "division-data",
+    "phone-formats",
+    "react-country-kit",
+    "mk-country-kit"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "vite build",
+    "build:types": "tsc --emitDeclarationOnly"
+  },
+  "dependencies": {
+    "libphonenumber-js": "^1.13.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^8.1.4",
+    "vite-plugin-dts": "^5.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kishormainali/mk-country-kit.git",
+    "directory": "packages/data"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

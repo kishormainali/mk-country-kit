@@ -1,0 +1,100 @@
+{
+  "name": "@mkishor/mk-country-kit-react",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A comprehensive React component library for country, currency, timezone, language, and division picking. Supports both vanilla CSS and shadcn/Tailwind CSS variants.",
+  "author": "Kishor Mainali",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "country-picker",
+    "currency-picker",
+    "timezone-picker",
+    "language-picker",
+    "division-picker",
+    "country",
+    "currency",
+    "timezone",
+    "shadcn",
+    "tailwindcss",
+    "radix-ui",
+    "react-country-kit",
+    "mk-country-kit"
+  ],
+  "main": "dist/mk-country-kit-react.cjs.js",
+  "module": "dist/mk-country-kit-react.es.js",
+  "types": "dist/mk-country-kit-react.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/mk-country-kit-react.d.ts",
+      "import": "./dist/mk-country-kit-react.es.js",
+      "require": "./dist/mk-country-kit-react.cjs.js"
+    },
+    "./ui": {
+      "types": "./dist/ui.d.ts",
+      "import": "./dist/ui.es.js",
+      "require": "./dist/ui.cjs.js"
+    },
+    "./styles": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && cp -r ../ui/dist/* ./dist/ && mv ./dist/index.js ./dist/ui.cjs.js && mv ./dist/index.mjs ./dist/ui.es.js && mv ./dist/index.d.ts ./dist/ui.d.ts",
+    "build:types": "tsc --emitDeclarationOnly",
+    "preview": "vite preview",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "peerDependencies": {
+    "@radix-ui/react-popover": ">=1.0.0",
+    "class-variance-authority": ">=0.7.0",
+    "clsx": ">=2.0.0",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0",
+    "tailwind-merge": ">=2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@radix-ui/react-popover": {
+      "optional": true
+    },
+    "tailwind-merge": {
+      "optional": true
+    },
+    "clsx": {
+      "optional": true
+    },
+    "class-variance-authority": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@radix-ui/react-popover": "^1.1.19",
+    "@types/node": "^26.1.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.6.0",
+    "typescript": "^5.9.3",
+    "vite": "^8.1.4",
+    "vite-plugin-dts": "^5.0.3"
+  },
+  "dependencies": {
+    "libphonenumber-js": "^1.13.8",
+    "@mkishor/mk-country-kit-core": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kishormainali/mk-country-kit.git",
+    "directory": "packages/react"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
